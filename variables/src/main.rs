@@ -34,39 +34,63 @@ fn main() {
 
     //      Loop
     let mut x = 10;
-    let mut sum = 0;
-    loop {
-        sum = sum_two_nums(sum, x);
+    // let mut sum = 0;
+
+    let sum = loop {
         x += 1;
         if x == 15 {
-            println!("\n\nLOOP ENDED AT SUM = {}", sum);
-            break;
+            break x; // Break loop, and return the value of x.
         }
-    }
+    };
+    println!("\n\nLOOP ENDED AT SUM = {}", sum);
 
     //      Perform loop using a function.
     let increment = 1;
     let end_condition = 500;
     let count_result = loop_increment(x, increment, end_condition);
 
-    println!("\n\nLOOP-INCREMENT enD VALUE: {}", count_result);
+    println!("\n\nLOOP-INCREMENT END VALUE: {}", count_result);
+
+    //     WHILE LOOP
+    x = 0;
+    while x != end_condition {
+        x += increment;
+    }
+    println!("\n\nWHILE LOOP END VALUE: {}", x);
 
     //      FOR LOOP
-    // x = 0;
-    // for
+    x = 15;
+    let array = [10, 20, 30, 40, 50, 60, 70];
+
+    for element in array.iter() {
+        x += element;
+    }
+    println!("\n\nCURRENT VALUE OF X: {}", x);
+
+    x = 15;
+    for element in 1..11 {
+        x *= element;
+    }
+    println!("\n\nCURRENT VALUE OF X: {}", x);
 }
 
 fn sum_two_nums(x: u32, y: u32) -> u32 {
     x + y // Will return the sum since there is no ';'
 }
 
-fn loop_increment(x: u32, inc: u32, end_condition: u32) -> u32{
+fn loop_increment(x: u32, inc: u32, end_condition: u32) -> u32 {
     let mut final_value = x;
-    loop {
+    while final_value != end_condition {
         final_value += inc;
-        if !(final_value < end_condition) {
-            break;
-        }
-    };
+    }
+
+    //// Alternatively, use the code below.
+    // loop {
+    //     final_value += inc;
+    //     if !(final_value < end_condition) {
+    //         break;
+    //     }
+    // }
+
     return final_value;
 }

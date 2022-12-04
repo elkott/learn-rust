@@ -65,7 +65,7 @@ fn loop_increment(x: u32, inc: u32, end_condition: u32) -> u32{
     loop {
         final_value += inc;
         if !(final_value < end_condition) {
-            break final_value;
+            break;
         }
     };
     return final_value;

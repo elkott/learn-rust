@@ -1,7 +1,7 @@
 use rand::Rng;
 use std::{cmp::Ordering, io};
 
-fn main() {
+fn guess_game() {
     println!("Guess a number!");
 
     let sec_num = rand::thread_rng().gen_range(1, 10);

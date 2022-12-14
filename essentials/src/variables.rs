@@ -1,3 +1,5 @@
+include!("utils.rs");
+
 fn run_variablaes_demo() {
     println!("\nVARIABLES DEMO FUNCTION");
 

@@ -4,7 +4,7 @@ use std::{cmp::Ordering, io};
 fn guess_game() {
     println!("Guess a number!");
 
-    let sec_num = rand::thread_rng().gen_range(1, 10);
+    let sec_num = rand::thread_rng().gen_range(1, 2);
 
     let mut solution_found: bool = false;
     while solution_found == false {

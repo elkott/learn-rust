@@ -38,7 +38,6 @@ fn structs_demo() {
 
     //      STRUCT METHOD IMPLEMENTATION
     impl Rectangle {
-
         fn area(&self) -> u32 {
             self.height * self.width
         }
@@ -49,11 +48,13 @@ fn structs_demo() {
     }
 
     impl Rectangle {
-        fn square(size:u32)->Rectangle{
-            Rectangle { width: size, height: size }
-        }        
+        fn square(size: u32) -> Rectangle {
+            Rectangle {
+                width: size,
+                height: size,
+            }
+        }
     }
-
 
     // fn area(rectangle: &Rectangle) -> u32 {
     //     rectangle.width * rectangle.height
@@ -64,16 +65,20 @@ fn structs_demo() {
         height: 50,
     };
 
-let _my_square = Rectangle::square(30);
-
-
-
+    let _my_square = Rectangle::square(30);
 
     //      FORMATTING STRUCT
     println!("\n\nRECTANGLE: {:#?}", _my_rectangle);
-    println!("\n\nAREA OF RECTANGLE {:?} = {}", _my_rectangle, _my_rectangle.area());
+    println!(
+        "\n\nAREA OF RECTANGLE {:?} = {}",
+        _my_rectangle,
+        _my_rectangle.area()
+    );
 
-    println!("\n\nRECTANGLE {:?} HOLD TEST OF SQUARE {:?} is: {}", _my_rectangle, _my_square, _my_rectangle.can_hold(&_my_square));
-
-
+    println!(
+        "\n\nRECTANGLE {:?} HOLD TEST OF SQUARE {:?} is: {}",
+        _my_rectangle,
+        _my_square,
+        _my_rectangle.can_hold(&_my_square)
+    );
 }

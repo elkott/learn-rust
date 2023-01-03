@@ -5,6 +5,7 @@ include!("hello_rust.rs");
 include!("variables.rs");
 include!("structs.rs");
 include!("enums.rs");
+include!("lifetimes.rs");
 
 fn main() {
 
@@ -17,5 +18,7 @@ fn main() {
     structs_demo();
 
     enums_demo();
+
+    lifetimes_demo();
 
 }

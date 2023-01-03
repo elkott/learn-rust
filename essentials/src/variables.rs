@@ -30,6 +30,22 @@ fn run_variablaes_demo() {
     //      Array
     let _ages = [10, 20, 30, 50];
 
+    //      Vector
+    let mut my_vec = vec![1u32, 2, 3];
+    println!("\n\nVECTOR - Initial: {:?}", my_vec);
+    println!(
+        "First item in vector is ONE: {}",
+        first_element_equals_one(&mut my_vec)
+    );
+    my_vec.push(15);
+    println!("VECTOR - Final: {:?}", my_vec);
+
+    // PASS A REFERENCE TO A MUTBLE VARIABLE USING A FUNCTION
+    let mut init_val: i8 = 10;
+    println!("\n\nADD Two to {}", init_val);
+    add_two(&mut init_val);
+    println!("              -> {}", init_val);
+
     // EXPRESSIONS
     let age = if mytup.1 < 125 { mytup.1 } else { 25 };
     println!("\n\nAGE: {}", age);
@@ -92,4 +108,12 @@ fn run_variablaes_demo() {
 
     println!("\n{}, World! - MOVED  \"Hello\"", s1);
     println!("{}, World! - CLONED \"Hello\"", s2);
+}
+
+fn first_element_equals_one(vector_in: &mut [u32]) -> bool {
+    vector_in[0] == 1
+}
+
+fn add_two(input_var: &mut i8) {
+    *input_var += 2;
 }

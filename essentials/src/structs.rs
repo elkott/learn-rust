@@ -1,3 +1,5 @@
+// include!("enums.rs");
+
 fn structs_demo() {
     struct User {
         user_name: String,

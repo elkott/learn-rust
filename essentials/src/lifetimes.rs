@@ -7,6 +7,7 @@ struct User<'a> {
 }
 
 fn lifetimes_demo() {
+    
     // SIMPLE LIFETIME DEMO
     let string1 = String::from("abcde");
     let string2 = String::from("xyz");

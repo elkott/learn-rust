@@ -7,8 +7,19 @@ fn run_ownership_demo() {
     let mut var1 = var0; // Copy; variables on the stack may be copied.
     var1 += 10;
 
-    print_variable(var0, String::from("\nVAR0:\t"));
-    print_variable(var1, String::from("VAR1:\t"));
+    let str_lit: &str = "Hello"; // String literal - created on the stack.
+    let str_lit_cp = str_lit; // String literals can be copied.
+
+    print_variable(&var0, String::from("\nVAR0:\t"));
+    print_variable(&var1, String::from("VAR1:\t"));
+    print_variable(&str_lit_cp, String::from("STR_LIT_CP:\t"));
+
+    //      Array.
+    let array = [10, 20, 30, 40, 50, 60, 70];
+    let array_2 = array;
+
+    print_variable(&array, String::from("\nARRAY:\t"));
+    print_variable(&array_2, String::from("ARRAY2:\t"));
 
     // Variables on the heap.
     //      String.
@@ -17,12 +28,16 @@ fn run_ownership_demo() {
     let s1 = s0; // MOVE; data were moved to s1.
     let s2 = s1.clone() + &String::from(", World!"); // CLONE.
 
-    print_variable(s1, String::from("\nS1:\t"));
-    print_variable(s2, String::from("S2:\t"));
+    print_variable(&s1, String::from("\nS1:\t"));
+    print_variable(&s2, String::from("S2:\t"));
 
-    //      Array.
-    let array = [10, 20, 30, 40, 50, 60, 70];
-    print_variable(array, String::from("\nARRAY:\t"));
+    // print_variable(s2, String::from("S2:\t"));
+
+    //      Vector.
+    let my_vec = vec![1u32, 2, 3];
+    let my_vec_cp = my_vec; // MOVE!
+
+    print_variable(&my_vec_cp, String::from("\nVEC COPY-0:\t"));
 }
 
 ///
@@ -31,7 +46,11 @@ fn run_ownership_demo() {
 /// implementation of std::fmt::Debug on T to enable
 /// formatted printout.
 ///
-fn print_variable<T>(var: T, description: String)
+/// Please note: since we are passing a references to the
+/// variable var as input argument, the function does not
+/// take ownsership of the variable var.
+///
+fn print_variable<T>(var: &T, description: String)
 where
     T: std::fmt::Debug,
 {

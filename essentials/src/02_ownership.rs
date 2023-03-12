@@ -3,15 +3,17 @@
 ///
 fn run_ownership_demo() {
     // Variables on the stack.
-    let var0 = 10; // Immutable variable.
-    let mut var1 = var0; // Copy; variables on the stack may be copied.
+    let mut var0:u32 = 10; // Immutable variable.
+    let mut var1:u32 = var0; // Copy; variables on the stack may be copied.
     var1 += 10;
+
+    increment_and_print_u32(&mut var0, String::from("\nVAR0+1: ")); //Note how a value is passed by mutable reference.
+    print_variable(&var0, String::from("VAR0:\t"));
+    print_variable(&var1, String::from("VAR1:\t"));
 
     let str_lit: &str = "Hello"; // String literal - created on the stack.
     let str_lit_cp = str_lit; // String literals can be copied.
 
-    print_variable(&var0, String::from("\nVAR0:\t"));
-    print_variable(&var1, String::from("VAR1:\t"));
     print_variable(&str_lit_cp, String::from("STR_LIT_CP:\t"));
 
     //      Array.
@@ -54,5 +56,11 @@ fn print_variable<T>(var: &T, description: String)
 where
     T: std::fmt::Debug,
 {
+    println!("{} {:?}", description, var);
+}
+
+fn increment_and_print_u32(var: &mut u32, description: String)
+{
+    *var += 1;
     println!("{} {:?}", description, var);
 }

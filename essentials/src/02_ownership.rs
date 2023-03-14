@@ -51,11 +51,19 @@ fn run_ownership_demo() {
 
     //      Slice type.
     let mut hello_world = String::from("Hello, World!");
-    let hello = &hello_world[0..5];
-    let world = &hello_world[7..13];
+    print_variable(&hello_world, String::from("\nFull0:\t"));
 
-    print_variable(&hello_world, String::from("\nFull:\t"));
-    print_variable(&hello, String::from("SLIC1:\t"));
+    let hello_world = &hello_world[..];
+    print_variable(&hello_world, String::from("Full1:\t"));
+    
+    let hello = &hello_world[0..5]; // From index 0 to index 5, 5 is EXCLUSIVE.
+    let world = &hello_world[7..13];// From index 7 to index 13, 13 is EXCLUSIVE.
+    print_variable(&hello, String::from("\nSLIC1:\t"));
+    print_variable(&world, String::from("SLIC2:\t"));
+
+    let hello = &hello_world[..5];
+    let world = &hello_world[7..];
+    print_variable(&hello, String::from("\nSLIC1:\t"));
     print_variable(&world, String::from("SLIC2:\t"));
 }
 

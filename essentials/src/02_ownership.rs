@@ -49,15 +49,17 @@ fn run_ownership_demo() {
 
     print_variable(&my_vec_mv, String::from("\nVEC MOVE:\t"));
 
-    //      Slice type.
-    let mut hello_world = String::from("Hello, World!");
+    //          =============================
+    //               S L I C E   T Y P E
+    //          =============================
+    let hello_world = String::from("Hello, World!");
     print_variable(&hello_world, String::from("\nFull0:\t"));
 
     let hello_world = &hello_world[..];
     print_variable(&hello_world, String::from("Full1:\t"));
-    
+
     let hello = &hello_world[0..5]; // From index 0 to index 5, 5 is EXCLUSIVE.
-    let world = &hello_world[7..13];// From index 7 to index 13, 13 is EXCLUSIVE.
+    let world = &hello_world[7..13]; // From index 7 to index 13, 13 is EXCLUSIVE.
     print_variable(&hello, String::from("\nSLIC1:\t"));
     print_variable(&world, String::from("SLIC2:\t"));
 
@@ -65,6 +67,27 @@ fn run_ownership_demo() {
     let world = &hello_world[7..];
     print_variable(&hello, String::from("\nSLIC1:\t"));
     print_variable(&world, String::from("SLIC2:\t"));
+
+    let wrd1 = return_first_word(hello_world);
+    print_variable(&wrd1, String::from("\n1ST W:\t"));
+
+    //      Mutable string literal.
+    let mut new_str_literal = return_first_word(hello_world);
+
+    print_variable(
+        &return_first_word(new_str_literal),
+        String::from("\n1ST W1:\t"),
+    );
+
+    new_str_literal = "hi, world";
+    print_variable(
+        &return_first_word(new_str_literal),
+        String::from("1ST W2:\t"),
+    );
+
+    //     Slice of array of numerals.
+    let numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    print_variable(&&numbers[..3], String::from("\n1ST 3:\t"));
 }
 
 ///
@@ -87,4 +110,15 @@ where
 fn increment_and_print_u32(var: &mut u32, description: String) {
     *var += 1;
     println!("{} {:?}", description, var);
+}
+
+fn return_first_word(var: &str) -> &str {
+    let word_bytes = var.as_bytes();
+    for (i, &item) in word_bytes.iter().enumerate() {
+        if item == b' ' || item == b',' {
+            return &var[..i];
+        }
+    }
+
+    return &var[..];
 }

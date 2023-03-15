@@ -6,13 +6,17 @@ mod mod01 {
         pub name: String,
         pub age: u32,
         pub children: u32,
+        pub fav_col: Colour,
     }
 
     impl Person {
         pub fn print(&self) -> String {
             format!(
-                "Name: {}, Age {}, has {} children.",
-                self.name, self.age, self.children
+                "Name: {}, Age {}, has {} children, and loves the colour {}.",
+                self.name,
+                self.age,
+                self.children,
+                self.fav_col.print_content()
             )
         }
     }
@@ -26,11 +30,11 @@ mod mod01 {
     }
 
     impl Colour {
-        pub fn shoutout(&self) -> String {
+        pub fn print_content(&self) -> String {
             match self {
-                Colour::Blue => format!("Colour is {:#?}", self),
-                Colour::Green => format!("Colour is {:#?}", self),
-                Colour::Red(s) => format!("Contents are {:#?}", s),
+                Colour::Blue => format!("{:#?}", self),
+                Colour::Green => format!("{:#?}", self),
+                Colour::Red(s) => format!("{:#?}", s),
             }
         }
     }

@@ -8,6 +8,7 @@ fn main() {
         name: String::from("Diaa ElKott"),
         age: 53,
         children: 3,
+        fav_col:mod01::Colour::Blue
     };
 
     println!("\nClient Information - DEBUG:\n{:#?}", p1);
@@ -15,8 +16,8 @@ fn main() {
 
     // Create a COLOUR enum and interrogate it.
     let c1 = mod01::Colour::Green;
-    let c2 = mod01::Colour::Red(p1.print());
+    let c2 = mod01::Colour::Red(String::from("Reddish!"));
 
-    println!("\nC1: {}", c1.shoutout());
-    println!("\nC2: {}", c2.shoutout());
+    println!("\nC1: {}", c1.print_content());
+    println!("\nC2: {}", c2.print_content());
 }

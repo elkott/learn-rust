@@ -1,1 +1,0 @@
-/home/diaa/Education/learn-rust/udemy-data-structures/target/debug/udemy-data-structures: /home/diaa/Education/learn-rust/udemy-data-structures/src/00_struct_enum_intro.rs /home/diaa/Education/learn-rust/udemy-data-structures/src/main.rs

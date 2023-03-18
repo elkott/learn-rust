@@ -1,6 +1,20 @@
 mod mod01 {
 
-    /// STRUCT - Person
+    ///# Struct PERSON
+    ///## Example of Using the Person Struct:
+    ///
+    ///```
+    /// let p1 = mod01::Person {
+    ///     name: String::from("John Smith"),
+    ///     age: 46,
+    ///     children: 2,
+    ///     fav_col: mod01::Colour::Green
+    ///     };
+    ///
+    /// let output = p1.print();
+    /// assert_eq!(output, "Name: John Smith, Age 46, has 2 children, and loves the colour Green.");
+    ///```
+    ///
     #[derive(Debug)]
     pub struct Person {
         pub name: String,

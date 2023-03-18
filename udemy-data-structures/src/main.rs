@@ -1,14 +1,12 @@
 include!("00_struct_enum_intro.rs");
-
 fn main() {
-
-    // Create a PERSON struct and print its contents 
+    // Create a PERSON struct and print its contents
     // using two different methods.
     let p1 = mod01::Person {
         name: String::from("Diaa ElKott"),
         age: 53,
         children: 3,
-        fav_col:mod01::Colour::Blue
+        fav_col: mod01::Colour::Blue,
     };
 
     println!("\nClient Information - DEBUG:\n{:#?}", p1);

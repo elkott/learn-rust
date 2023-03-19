@@ -1,14 +1,14 @@
-mod mod01 {
+mod mod00 {
 
     ///# Struct PERSON
     ///## Example of Using the Person Struct:
     ///
     ///```
-    /// let p1 = mod01::Person {
+    /// let p1 = mod00::Person {
     ///     name: String::from("John Smith"),
     ///     age: 46,
     ///     children: 2,
-    ///     fav_col: mod01::Colour::Green
+    ///     fav_col: mod00::Colour::Green
     ///     };
     ///
     /// let output = p1.print();
@@ -51,5 +51,27 @@ mod mod01 {
                 Colour::Red(s) => format!("{:#?}", s),
             }
         }
+    }
+
+    pub fn demo_structs_enums() {
+        //
+        // Create a PERSON struct and print its contents
+        // using two different methods.
+        let p1 = Person {
+            name: String::from("Diaa ElKott"),
+            age: 53,
+            children: 3,
+            fav_col: Colour::Blue,
+        };
+
+        println!("\nClient Information - DEBUG:\n{:#?}", p1);
+        println!("\nClient Information - SELF PRINT:\n\t{:#?}", p1.print());
+
+        // Create a COLOUR enum and interrogate it.
+        let c1 = Colour::Green;
+        let c2 = Colour::Red(String::from("Reddish!"));
+
+        println!("\nC1: {}", c1.print_content());
+        println!("\nC2: {}", c2.print_content());
     }
 }

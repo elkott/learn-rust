@@ -1,6 +1,6 @@
 mod mod01 {
 
-    // Generic Results enum.
+    // Generic Result enum.
     #[derive(Debug)]
     pub enum Res<T, E> {
         Thing(T),
@@ -29,14 +29,14 @@ mod mod01 {
         match divide(a, b) {
             Res::Thing(v) => println!("\n{}/{} = {:?}", a, b, v),
             Res::Error(e) => println!("\n{}/{} = {:?}", a, b, e),
-            _ => {} // This line is unreachable; sed to demonstrate the usage of "_".
+            // _ => {} // This line is unreachable; used to demonstrate the usage of "_".
         }
 
         let b = 5;
         match divide_std(a, b) {
             Result::Ok(v) => println!("{}/{} = {:?}", a, b, v),
             Result::Err(e) => println!("{}/{} = {:?}", a, b, e),
-            _ => {} // This line is unreachable; sed to demonstrate the usage of "_".
+            // _ => {} // This line is unreachable; sed to demonstrate the usage of "_".
         }
 
         let b = 2;

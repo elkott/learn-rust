@@ -9,7 +9,7 @@ fn main() {
     // 01. Demonstate the Result enum.
     mod01::demo_result();
 
-// 02. Demonstrate iterator mechanisms.
-mod02::demo_iterator();
-
+    // 02. Demonstrate iterator mechanisms.
+    mod02::demo_iterator_0();
+    mod02::demo_iterator_1();
 }

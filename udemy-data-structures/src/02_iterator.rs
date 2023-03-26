@@ -124,10 +124,10 @@ mod mod02 {
             model: String,
         }
 
-        fn match_shoe_size(shoes: Vec<Shoe>, size: f32) -> Vec<Shoe> {
+        fn match_shoe_size<'a>(shoes: &'a Vec<Shoe>, size: &'a f32) -> Vec<&'a Shoe> {
             shoes
                 .into_iter()
-                .filter(|shoe: &Shoe| shoe.size == size)
+                .filter(|shoe: &&Shoe| shoe.size == *size)
                 .collect()
         }
 
@@ -167,7 +167,13 @@ mod mod02 {
         println!("==============================");
 
         let size = 11.0;
-        let my_shoes_selection = match_shoe_size(shoe_collection, size);
+        let my_shoes_selection = match_shoe_size(&shoe_collection, &size);
+        
+        println!("Size {} Shoes:{:#?}", size, my_shoes_selection);
+        
+        let size = 10.5;
+        let my_shoes_selection = match_shoe_size(&shoe_collection, &size);
+        
         println!("Size {} Shoes:{:#?}", size, my_shoes_selection);
     }
 }

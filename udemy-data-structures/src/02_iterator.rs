@@ -124,6 +124,15 @@ mod mod02 {
             model: String,
         }
 
+        // Takes ownership of the input arguments.
+        fn match_shoe_size_0(shoes: Vec<Shoe>, size: f32) -> Vec<Shoe> {
+            shoes
+                .into_iter()
+                .filter(|shoe: &Shoe| shoe.size == size)
+                .collect()
+        }
+
+        // Works on immutable references to input arguments.
         fn match_shoe_size<'a>(shoes: &'a Vec<Shoe>, size: &'a f32) -> Vec<&'a Shoe> {
             shoes
                 .into_iter()
@@ -168,12 +177,14 @@ mod mod02 {
 
         let size = 11.0;
         let my_shoes_selection = match_shoe_size(&shoe_collection, &size);
-        
-        println!("Size {} Shoes:{:#?}", size, my_shoes_selection);
-        
+        println!("\nSize {} Shoes:{:#?}", size, my_shoes_selection);
+
         let size = 10.5;
         let my_shoes_selection = match_shoe_size(&shoe_collection, &size);
-        
-        println!("Size {} Shoes:{:#?}", size, my_shoes_selection);
+        println!("\nSize {} Shoes:{:#?}", size, my_shoes_selection);
+
+        let size = 10.0;
+        let my_shoes_selection = match_shoe_size_0(shoe_collection, size);
+        println!("\nSize {} Shoes:{:#?}", size, my_shoes_selection);
     }
 }

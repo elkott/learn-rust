@@ -53,7 +53,7 @@ mod mod00 {
         }
     }
 
-    pub fn demo_structs_enums() {
+    pub fn demo_structs_enums_0() {
         //
         // Create a PERSON struct and print its contents
         // using two different methods.
@@ -73,5 +73,38 @@ mod mod00 {
 
         println!("\nC1: {}", c1.print_content());
         println!("\nC2: {}", c2.print_content());
+    }
+
+    // Experiment with ownerships.
+    pub fn demo_structs_enums_1() {
+        // Create a PERSON struct and modify its contents
+        // by passing mutable references.
+        let mut p1 = Person {
+            name: String::from("Diaa ElKott"),
+            age: 53,
+            children: 3,
+            fav_col: Colour::Blue,
+        };
+
+        println!("\nPerson BEFORE:\t{:?}", p1.print());
+
+        let new_name = String::from("Diaa F. ElKott");
+        let new_age = 54;
+        modify_name_age(&mut p1, &new_name, &new_age);
+
+        println!("\nPerson AFTER:\t{:?}", p1.print());
+
+        fn modify_name_age(person: &mut Person, new_name: &String, new_age: &u32) {
+            modify_name(person, new_name);
+            modify_age(person, new_age);
+        }
+
+        fn modify_name(person: &mut Person, new_name: &String) {
+            person.name = String::from(new_name);
+        }
+
+        fn modify_age(person: &mut Person, new_age: &u32) {
+            person.age = *new_age;
+        }
     }
 }

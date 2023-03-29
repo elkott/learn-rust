@@ -4,7 +4,8 @@ include!("02_iterator.rs");
 
 fn main() {
     // 00. Demonstrate enums and structs.
-    mod00::demo_structs_enums();
+    mod00::demo_structs_enums_0();
+    mod00::demo_structs_enums_1();
 
     // 01. Demonstate the Result enum.
     mod01::demo_result();

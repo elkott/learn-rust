@@ -40,16 +40,20 @@ mod mod99 {
         }
     }
 
+    fn calc_num_days_between(end_date: NaiveDate, start_date: NaiveDate) -> i64 {
+        (end_date - start_date).num_days()
+    }
+
     fn calc_date_diff(
         end_date: NaiveDate,
         start_date: NaiveDate,
         include_last_day: bool,
     ) -> Result<(u32, u32, u32), String> {
-        // Duration.
-        let duration = end_date - start_date;
+        // Difference in days.
+        let diff_days = calc_num_days_between(end_date, start_date);
 
         // Check error case.
-        if duration.num_days() < 0 {
+        if diff_days < 0 {
             return Result::Err(String::from(
                 "Invalid dates order. Did you switch start, and end dates?",
             ));
@@ -140,17 +144,40 @@ mod mod99 {
     }
 
     pub fn date_demo() {
-        let mut p = Person {
-            dob_day: 7,
-            dob_month: 4,
-            dob_year: 1970,
-            name: String::from("Diaa ElKott"),
-            age_years: 1,
-            age_months: 1,
-            age_days: 1,
-        };
+        let y0: i32 = 1970;
+        let m0: u32 = 2;
+        let d0: u32 = 7;
 
-        p.update_age();
-        println!("\n\nPERSON:\t{:?}", p);
+        let y1: i32 = 2023;
+        let m1: u32 = 4;
+        let d1: u32 = 2;
+
+        let date_0 = NaiveDate::from_ymd_opt(y0, m0, d0);
+        let date_1 = NaiveDate::from_ymd_opt(y1, m1, d1);
+
+        let res = calc_date_diff(date_1.unwrap(), date_0.unwrap(), false);
+
+        let mut num_years = 0;
+        let mut num_months = 0;
+        let mut num_days = 0;
+
+        match res {
+            Ok((years, months, days)) => {
+                num_years = years as u32;
+                num_months = months as u32;
+                num_days = days as u32;
+            }
+            Err(error) => {
+                println!("Error: {}", error);
+            }
+        }
+
+        println!("\n=============================\nD A T E   D I F F E R E N C E\n=============================");
+        println!("FROM:\t{:?}", date_0);
+        println!("TO:\t{:?}", date_1);
+        println!("_____________________________");
+        println!("Years:\t{}", num_years);
+        println!("Months:\t{}", num_months);
+        println!("Days:\t{}", num_days);
     }
 }

@@ -16,5 +16,5 @@ fn main() {
     mod02::demo_iterator_1();
 
     // 99: Demonstrate date calculations.
-    mod99::date_demo();
+    mod99::date_demo_0();
 }

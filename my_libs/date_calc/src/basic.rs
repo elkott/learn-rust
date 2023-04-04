@@ -18,7 +18,7 @@
 /// * year:i32
 ///
 /// # Output
-/// 
+///
 /// * true/false.
 pub fn is_leap_year(year: i32) -> bool {
     if year % 4 == 0 {
@@ -59,16 +59,16 @@ pub fn is_leap_year(year: i32) -> bool {
 /// }
 /// ```
 /// The above code snippet will print the string:
-/// 
-/// Number of days in 2-2000 is 29 
-/// 
+///
+/// Number of days in 2-2000 is 29
+///
 /// # Input
-/// 
+///
 /// * month:u32
 /// * year: i32
 ///
 /// # Return
-/// 
+///
 /// Result<u32, String> enum containing the number of days in month, or
 /// error message in case the month input is wrong.
 pub fn num_days_in_month(month: u32, year: i32) -> Result<u32, String> {

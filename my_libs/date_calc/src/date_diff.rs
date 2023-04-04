@@ -9,7 +9,7 @@ use chrono::{Datelike, Duration, NaiveDate};
 /// Return the number of days between two dates. A negative return value
 /// means that the input start date is beyond the end date.
 ///
-/// # Example
+/// # Examples
 ///
 /// ```
 /// use chrono::{NaiveDate};

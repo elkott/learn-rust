@@ -6,7 +6,7 @@
 /// years that are divisible by 100 but NOT divisible by 400.
 /// For example, 2000 and 2400 are leap years, but 1800 and 1900 are not.
 ///
-/// # Example
+/// # Examples
 ///
 /// ```
 /// let is_leap = date_calc::is_leap_year(2000);

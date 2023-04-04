@@ -17,6 +17,8 @@ use chrono::{Datelike, Duration, NaiveDate};
 /// let start_date = NaiveDate::from_ymd_opt(2023, 4, 4).unwrap();
 /// let end_date   = NaiveDate::from_ymd_opt(2023, 3, 4).unwrap();
 /// let num_days   = date_calc::days_between_dates(start_date, end_date);
+/// 
+/// assert_eq!(31, num_days);
 /// ```
 ///
 /// # Input

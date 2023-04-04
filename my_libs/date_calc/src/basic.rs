@@ -9,8 +9,11 @@
 /// # Example
 ///
 /// ```
-/// let is_leap = date_calc::is_leap_year(2000); // returns true.
-/// let is_leap = date_calc::is_leap_year(1900); // returns false.
+/// let is_leap = date_calc::is_leap_year(2000);
+/// assert_eq!(true, is_leap);
+/// 
+/// let is_leap = date_calc::is_leap_year(1900);
+/// assert_eq!(false, is_leap);
 /// ```
 ///
 /// # Input
@@ -43,7 +46,7 @@ pub fn is_leap_year(year: i32) -> bool {
 /// The year is passed as an input argument in order to
 /// return the number of days in February.
 ///
-/// # Example
+/// # Examples
 ///
 /// ```
 /// let month: u32 = 2;
@@ -57,6 +60,14 @@ pub fn is_leap_year(year: i32) -> bool {
 ///         println!("Error: {}", error);
 ///     }
 /// }
+/// ```
+/// 
+/// ```
+/// let month: u32 = 2;
+/// let year: i32 = 2000;
+/// let res = date_calc::num_days_in_month(month, year);
+/// 
+/// assert_eq!(29, res.unwrap());
 /// ```
 /// The above code snippet will print the string:
 ///

@@ -1,12 +1,11 @@
 [package]
-name = "udemy-data-structures"
+name = "date_calc"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-chrono = "0.4.23"
 
 [profile.release]
 strip = true  # Automatically strip symbols from the binary.
@@ -14,7 +13,3 @@ opt-level = "z"  # Optimize for size.
 codegen-units = 1
 lto = true
 panic = "abort"
-
-[lib]
-name = "date_calc"
-path = "../my_libs/date_calc/src/lib.rs"

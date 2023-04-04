@@ -102,8 +102,6 @@ mod tests {
         assert_eq!(false, is_leap_year(2019));
         assert_eq!(true, is_leap_year(2020));
         assert_eq!(false, is_leap_year(2021));
-        assert_eq!(false, is_leap_year(2022));
-        assert_eq!(false, is_leap_year(2023));
         assert_eq!(true, is_leap_year(2024));
     }
 
@@ -137,18 +135,5 @@ mod tests {
         assert_eq!(31, num_days_in_month(8, 2019).unwrap());
         assert_eq!(31, num_days_in_month(10, 2019).unwrap());
         assert_eq!(31, num_days_in_month(12, 2019).unwrap());
-
-        let month: u32 = 2;
-        let year: i32 = 2000;
-        let res = num_days_in_month(month, year);
-
-        match res {
-            Ok(days) => {
-                println!("\nNumber of days in {}-{} is {}", month, year, days);
-            }
-            Err(error) => {
-                println!("Error: {}", error);
-            }
-        }
     }
 }

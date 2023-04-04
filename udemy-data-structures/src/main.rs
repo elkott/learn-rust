@@ -19,17 +19,4 @@ fn main() {
 
     // 99: Demonstrate date calculations.
     mod99::date_demo_0();
-
-    let month: u32 = 2;
-    let year: i32 = 2000;
-    let res = date_calc::num_days_in_month(month, year);
-
-    match res {
-        Ok(days) => {
-            println!("\nNumber of days in {}-{} is {}", month, year, days);
-        }
-        Err(error) => {
-            println!("Error: {}", error);
-        }
-    }
 }

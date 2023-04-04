@@ -172,12 +172,16 @@ mod mod99 {
             }
         }
 
-        println!("\n=============================\nD A T E   D I F F E R E N C E\n=============================");
+        println!("\n=============================");
+        println!("D A T E   D I F F E R E N C E");
+        println!("=============================");
         println!("FROM:\t{:?}", date_0);
         println!("TO:\t{:?}", date_1);
         println!("_____________________________");
         println!("Years:\t{}", num_years);
         println!("Months:\t{}", num_months);
         println!("Days:\t{}", num_days);
+
+        println!("\nDIFF IN DAYS = \t{}", date_calc::days_between_dates(date_0.unwrap(), date_1.unwrap()));
     }
 }

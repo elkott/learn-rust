@@ -9,8 +9,8 @@
 /// # Example
 ///
 /// ```
-/// let is_leap = is_leap_year(2000); // returns true.
-/// let is_leap = is_leap_year(1900); // returns false.
+/// let is_leap = date_calc::is_leap_year(2000); // returns true.
+/// let is_leap = date_calc::is_leap_year(1900); // returns false.
 /// ```
 ///
 /// # Input
@@ -92,12 +92,13 @@ pub fn num_days_in_month(month: u32, year: i32) -> Result<u32, String> {
 }
 
 #[cfg(test)]
-mod tests {
+mod tests_basic {
     use super::*;
 
     #[test]
     fn test_is_leap_year() {
         assert_eq!(false, is_leap_year(1900));
+        assert_eq!(false, is_leap_year(1970));
         assert_eq!(true, is_leap_year(2000));
         assert_eq!(false, is_leap_year(2019));
         assert_eq!(true, is_leap_year(2020));

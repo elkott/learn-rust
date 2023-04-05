@@ -144,9 +144,9 @@ mod mod99 {
     }
 
     pub fn date_demo_0() {
-        let y0: i32 = 1970;
+        let y0: i32 = 1950;
         let m0: u32 = 2;
-        let d0: u32 = 7;
+        let d0: u32 = 28;
 
         let y1: i32 = 2023;
         let m1: u32 = 4;

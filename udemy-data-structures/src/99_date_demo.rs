@@ -150,12 +150,14 @@ mod mod99 {
 
         let y1: i32 = 2023;
         let m1: u32 = 4;
-        let d1: u32 = 2;
+        let d1: u32 = 9;
 
         let date_0 = NaiveDate::from_ymd_opt(y0, m0, d0);
         let date_1 = NaiveDate::from_ymd_opt(y1, m1, d1);
 
-        let res = calc_date_diff(date_1.unwrap(), date_0.unwrap(), false);
+        let res = date_calc::date_diff(date_1.unwrap(), date_0.unwrap(), false);
+        let res = date_calc::years_months_days_since(date_0.unwrap(), false);
+        let res = date_calc::years_months_days_till(date_1.unwrap(), false);
 
         let mut num_years = 0;
         let mut num_months = 0;
@@ -182,6 +184,6 @@ mod mod99 {
         println!("Months:\t{}", num_months);
         println!("Days:\t{}", num_days);
 
-        println!("\nDIFF IN DAYS = \t{}", date_calc::days_between_dates(date_0.unwrap(), date_1.unwrap()));
+        println!("\nDIFF IN DAYS = \t{}", date_calc::days_between(date_1.unwrap(), date_0.unwrap()));
     }
 }
